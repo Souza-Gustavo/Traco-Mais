@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Traço+</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz@0,14..32;1,14..32&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Traço<span>+</span></h1>
+    </header>
+    <main>
+        <!-- Cards de peças a concretar -->
+        <nav>
+            <button type="button" class="ativa" data-tipo="broca">Broca / Estaca</button>
+            <button type="button" data-tipo="bloco">Bloco / Sapata</button>
+            <button type="button" data-tipo="viga">Viga</button>
+            <button type="button" data-tipo="pilar">Pilar</button>
+            <button type="button" data-tipo="laje">Laje</button>
+            <button type="button" data-tipo="piso">Piso / Radier / Calçada</button>
+            <button type="button" data-tipo="parede">Parede de Concreto</button>
+            <button type="button" data-tipo="piscina">Piscina</button>
+            <button type="button" data-tipo="escada">Escada</button>
+            <button type="button" data-tipo="livre">Volume Livre</button>
+        </nav>
+
+        <!-- Formularios dos calculos -->
+        <section data-tipo="broca" class="formulario">
+            <h2>Broca / Estaca</h2>
+            <label for="broca-diametro">Diâmetro (cm)</label>
+            <input type="number" id="broca-diametro" inputmode="decimal" step="any" min="0" placeholder="Ex: 30">
+            <label for="broca-profundidade">Profundidade (m)</label>
+            <input type="number" id="broca-profundidade" inputmode="decimal" step="any" min="0" placeholder="Ex: 5,00">
+            <label for="broca-quantidade">Quantidade (un)</label>
+            <input type="number" id="broca-quantidade" inputmode="numeric" min="1" placeholder="Ex: 1">
+        </section>
+
+        <section data-tipo="bloco" class="formulario" hidden>
+            <h2>Bloco / Sapata</h2>
+            <label for="bloco-comprimento">Comprimento (m)</label>
+            <input type="number" id="bloco-comprimento" inputmode="decimal" step="any" min="0" placeholder="Ex: 0,70">
+            <label for="bloco-largura">Largura (m)</label>
+            <input type="number" id="bloco-largura" inputmode="decimal" step="any" min="0" placeholder="Ex: 0,70">
+            <label for="bloco-altura">Altura (m)</label>
+            <input type="number" id="bloco-altura" inputmode="decimal" step="any" min="0" placeholder="Ex: 0,70">
+            <label for="bloco-quantidade">Quantidade (un)</label>
+            <input type="number" id="bloco-quantidade" inputmode="numeric" min="1" placeholder="Ex: 1">
+        </section>
+
+        <section data-tipo="viga" class="formulario" hidden>
+            <h2>Viga</h2>
+            <label for="viga-comprimento">Comprimento (m)</label>
+            <input type="number" id="viga-comprimento" inputmode="decimal" step="any" min="0" placeholder="Ex: 6,00">
+            <label for="viga-largura">Largura (m)</label>
+            <input type="number" id="viga-largura" inputmode="decimal" step="any" min="0" placeholder="Ex: 0,20">
+            <label for="viga-altura">Altura (m)</label>
+            <input type="number" id="viga-altura" inputmode="decimal" step="any" min="0" placeholder="Ex: 0,40">
+            <label for="viga-quantidade">Quantidade (un)</label>
+            <input type="number" id="viga-quantidade" inputmode="numeric" min="1" placeholder="Ex: 1">
+        </section>
+
+        <section data-tipo="pilar" class="formulario" hidden>
+            <h2>Pilar</h2>
+            <label for="pilar-comprimento">Comprimento (m)</label>
+            <input type="number" id="pilar-comprimento" inputmode="decimal" step="any" min="0" placeholder="Ex: 0,30">
+            <label for="pilar-largura">Largura (m)</label>
+            <input type="number" id="pilar-largura" inputmode="decimal" step="any" min="0" placeholder="Ex: 0,20">
+            <label for="pilar-altura">Altura (m)</label>
+            <input type="number" id="pilar-altura" inputmode="decimal" step="any" min="0" placeholder="Ex: 3,00">
+            <label for="pilar-quantidade">Quantidade (un)</label>
+            <input type="number" id="pilar-quantidade" inputmode="numeric" min="1" placeholder="Ex: 1">
+        </section>
+
+        <section data-tipo="laje" class="formulario" hidden>
+            <h2>Laje</h2>
+            <label for="laje-comprimento">Comprimento (m)</label>
+            <input type="number" id="laje-comprimento" inputmode="decimal" step="any" min="0" placeholder="Ex: 5,00">
+            <label for="laje-largura">Largura (m)</label>
+            <input type="number" id="laje-largura" inputmode="decimal" step="any" min="0" placeholder="Ex: 4,00">
+            <label for="laje-espessura">Espessura (cm)</label>
+            <input type="number" id="laje-espessura" inputmode="decimal" step="any" min="0" placeholder="Ex: 10">
+            <label for="laje-quantidade">Quantidade (un)</label>
+            <input type="number" id="laje-quantidade" inputmode="numeric" min="1" placeholder="Ex: 1">
+        </section>
+
+        <!-- Adicionar nova peça -->
+        <button type="button" id="adicionar">Adicionar à Lista</button>
+
+        <section id="lista-pecas">
+            <h2>Peças do Pedido</h2>
+            <p id="lista-vazia">Nenhuma peça adicionada</p>
+            <ul id="lista"></ul>
+        </section>
+
+        <!-- Calcular todas as peças -->
+        <button type="button" id="btn-calcular" disabled>Calcular</button>
+        <section id="resultado" hidden>
+            <h2>Resultado</h2>
+            <p class="destaque">Volume Final: <span id="volumeFinal"></span> m³</p>
+            <p>Volume Exato: <span id="volumeExato"></span> m³</p>
+            <p>Volume com Margem: <span id="volumeMargem"></span> m³</p>
+            <h3>Viagens</h3>
+            <ul id="viagens"></ul>
+            <h3>Detalhes</h3>
+            <div id="detalhes"></div>
+
+            <a id="whatsapp" href="#" target="_blank">Pedir no Whatsapp</a>
+        </section>
+    </main>
+    <footer>
+
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
