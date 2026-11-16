@@ -7,6 +7,8 @@
     --borda: #E0E0E0;
     --texto-suave: #555555;
     --texto-claro: #BDBDBD;
+    --desativado: #D4D4D4;
+    --texto-desativado: #6E6E6E;
 }
 
 * {
@@ -85,7 +87,7 @@ nav button.ativa {
     color: var(--branco);
 }
 
-.formulario {
+.formulario, #lista-pecas, #resultado {
     background-color: var(--branco);
     border: 1px solid var(--borda);
     border-radius: 16px;
@@ -93,7 +95,7 @@ nav button.ativa {
     box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
 }
 
-.formulario h2 {
+.formulario h2, #lista-pecas h2, #resultado h2 {
     font-size: 1.25rem;
     font-weight: 800;
 }
@@ -123,4 +125,109 @@ nav button.ativa {
 
 .formulario input::placeholder {
     color: var(--texto-suave);
+}
+
+#adicionar {
+    height: 56px;
+    background-color: var(--branco);
+    border: 2px solid var(--verde);
+    border-radius: 14px;
+    color: var(--verde);
+    font-size: 1.05rem;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+#adicionar:active {
+    background-color: var(--verde);
+    color: var(--branco);
+}
+
+#btn-calcular {
+    height: 64px;
+    background-color: var(--preto);
+    color: var(--branco);
+    border: 0;
+    border-radius: 16px;
+    font-size: 1.25rem;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+}
+
+#btn-calcular:active {
+    transform: scale(0.98);
+}
+
+#btn-calcular:disabled {
+    background-color: var(--desativado);
+    color: var(--texto-desativado);
+    cursor: not-allowed;
+}
+
+#whatsapp {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 60px;
+    background-color: var(--verde);
+    color: var(--branco);
+    border-radius: 14px;
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+#whatsapp:active {
+    background-color: var(--verde-escuro);
+}
+
+#lista {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 14px;
+}
+
+#lista li {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px;
+    background-color: var(--fundo);
+    border: 1px solid var(--borda);
+    border-radius: 12px;
+}
+
+.peca-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.peca-info span {
+    font-size: 0.85rem;
+    color: var(--texto-suave);
+}
+
+.remover {
+    flex: 0 0 auto;
+    height: 44px;
+    padding: 0 14px;
+    border: 1px solid var(--borda);
+    border-radius: 10px;
+    background-color: var(--branco);
+    color: var(--preto);
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.remover:active {
+    background-color: var(--borda);
+}
+
+#lista-vazia {
+    color: var(--texto-suave);
+    margin-top: 6px;
 }
